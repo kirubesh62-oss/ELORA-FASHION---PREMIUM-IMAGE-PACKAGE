@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#eee5d8">
+<title>ÉLORA Fashion — Demo Store</title>
+<style>
+:root{--bg:#f7f3ed;--paper:#fffdfa;--sand:#e9dfd1;--tan:#c5ad91;--ink:#342b23;--muted:#887969;--gold:#a98552;--line:#e8dfd4;--dark:#40352b;--green:#526b50;--red:#9d5146}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.topbar{height:68px;background:#eee7dc;display:flex;align-items:center;justify-content:space-between;padding:0 max(16px,calc((100% - 1180px)/2));position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line)}.brand{font-family:Georgia,serif;font-size:25px;letter-spacing:4px;font-weight:500}.brand small{display:block;font:9px Arial;letter-spacing:4px;text-align:center;margin-top:3px}.top-actions{display:flex;gap:8px;align-items:center}.iconbtn,.modebtn{border:1px solid #d7cbbb;background:transparent;color:var(--ink);border-radius:6px;padding:10px 12px}.modebtn.active{background:var(--dark);color:white;border-color:var(--dark)}.wrap{max-width:1180px;margin:auto;padding:0 16px}.announcement{text-align:center;background:var(--dark);color:#f8f1e8;padding:9px;font-size:11px;letter-spacing:1.5px}.nav{display:flex;gap:25px;overflow:auto;white-space:nowrap;padding:16px 0;border-bottom:1px solid var(--line)}.nav button{border:0;background:none;color:var(--muted);font-size:12px;letter-spacing:1px}.nav button:hover,.nav button.active{color:var(--ink);font-weight:bold}.hero{margin:22px 0;background:linear-gradient(110deg,#d8c6ad,#a48b70);border-radius:9px;min-height:310px;display:flex;align-items:center;overflow:hidden;position:relative}.hero-copy{padding:42px;max-width:570px;color:#fff}.eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase}.hero h1{font:clamp(38px,7vw,66px)/1.02 Georgia,serif;margin:17px 0}.hero p{line-height:1.7;max-width:390px;font-size:14px}.primary{border:0;background:var(--dark);color:#fff;padding:13px 19px;border-radius:4px;letter-spacing:1px;font-size:11px}.primary.light{background:#fff;color:var(--dark)}.hero-art{position:absolute;right:0;top:0;bottom:0;width:48%;background:linear-gradient(90deg,#b7a18a 0%,transparent 22%),url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=1200&q=88&fit=crop') center 28%/cover no-repeat;opacity:.98}.category{position:relative;overflow:hidden;min-height:230px;color:#fff;background-size:cover;background-position:center}.category:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#211912b8,transparent 78%)}.category>*{position:relative;z-index:1}.category .emoji{display:none}.category b{font-size:26px;color:#fff}.category span:last-child{color:#fff}.editorial-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin:34px 0}.editorial-card{min-height:230px;border-radius:8px;overflow:hidden;position:relative;background-size:cover;background-position:center;display:flex;align-items:flex-end;padding:22px;color:white}.editorial-card:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#211912b8,transparent 75%)}.editorial-card>*{position:relative}.editorial-card h3{font:28px Georgia,serif;margin:5px 0}.promo{background:linear-gradient(90deg,#21191299,#21191235),url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1400&q=85&fit=crop') center 48%/cover no-repeat;color:white;min-height:220px;display:flex;flex-direction:column;justify-content:center;align-items:center}.promo p{color:#fff!important}.section-head .eyebrow{color:var(--gold)}.image-credit{font-size:10px;color:var(--muted);text-align:center;margin:12px 0}.product-visual img,.mini-art img{background:#eee7dc}.section-head{text-align:center;margin:38px 0 22px}.section-head h2{font:32px Georgia,serif;margin:0 0 8px}.section-head p{font-size:12px;color:var(--muted)}.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.category{background:var(--sand);border:0;border-radius:7px;min-height:125px;padding:20px;text-align:left;color:var(--ink);display:flex;flex-direction:column;justify-content:space-between}.category .emoji{font-size:32px}.category b{font:22px Georgia,serif}.category span:last-child{font-size:10px;letter-spacing:1px;color:#756555}.toolbar{display:flex;gap:10px;align-items:center;justify-content:space-between;margin:20px 0;flex-wrap:wrap}.search{flex:1;min-width:170px;max-width:380px;padding:12px 13px;border:1px solid var(--line);border-radius:5px;background:white}.select{padding:11px;border:1px solid var(--line);border-radius:5px;background:white;color:var(--ink)}.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.product-card{background:var(--paper);border:1px solid var(--line);border-radius:7px;overflow:hidden;position:relative}.product-visual{height:250px;background:linear-gradient(145deg,#eee7dc,#ded0bd);display:grid;place-items:center;font-size:75px;position:relative;overflow:hidden}.product-visual img{width:100%;height:100%;object-fit:cover;display:block}.product-visual .fallback{display:none}.product-visual .tag{position:absolute;top:10px;left:10px;background:#fffdfa;padding:6px 8px;font-size:9px;letter-spacing:1px}.heart{position:absolute;right:10px;top:9px;border:0;background:#fffdfa;border-radius:50%;width:31px;height:31px;font-size:17px}.product-info{padding:13px}.product-info .category-label{font-size:9px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase}.product-info h3{font:17px Georgia,serif;margin:7px 0}.price{font-size:14px;font-weight:bold}.old{font-size:11px;color:#a99b8d;text-decoration:line-through;margin-left:6px}.card-actions{display:flex;gap:7px;margin-top:12px}.card-actions button{flex:1;padding:10px 5px;font-size:10px;letter-spacing:.5px;border-radius:4px}.outline{border:1px solid var(--dark);background:transparent;color:var(--dark)}.card-actions .primary{padding:10px 5px}.promo{margin:45px 0;background:#e9dfd1;text-align:center;padding:35px 15px;border-radius:7px}.promo h2{font:30px Georgia,serif;margin:0 0 8px}.footer{background:var(--dark);color:#eee4d7;padding:30px 16px;text-align:center;margin-top:45px}.footer .brand{font-size:22px}.footer p{font-size:11px;color:#cbbba8;line-height:1.8}.view{display:none}.view.active{display:block}.page-title{font:34px Georgia,serif;margin:28px 0 5px}.sub{color:var(--muted);font-size:12px;margin:0 0 22px}.overlay{position:fixed;inset:0;background:#211a15a8;z-index:50;display:none;align-items:center;justify-content:center;padding:15px}.overlay.show{display:flex}.modal{background:var(--paper);width:min(560px,100%);max-height:90vh;overflow:auto;border-radius:9px;padding:22px;position:relative}.close{position:absolute;right:15px;top:13px;border:0;background:none;font-size:24px}.modal h2{font:26px Georgia,serif;margin:5px 30px 18px 0}.field{display:flex;flex-direction:column;gap:6px;margin:12px 0}.field label{font-size:11px;color:var(--muted);letter-spacing:.5px}.field input,.field select,.field textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:5px;background:white;color:var(--ink)}.row{display:flex;gap:10px}.row>*{flex:1;min-width:0}.size-list,.color-list{display:flex;gap:7px;flex-wrap:wrap}.size-btn,.color-btn{border:1px solid var(--line);background:white;padding:8px 12px;border-radius:4px;font-size:11px}.size-btn.selected,.color-btn.selected{border-color:var(--dark);background:#eee7dc}.cart-line{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);align-items:center}.mini-art{width:62px;height:65px;background:var(--sand);display:grid;place-items:center;font-size:30px;border-radius:5px;overflow:hidden;flex-shrink:0}.mini-art img{width:100%;height:100%;object-fit:cover}.cart-line div:nth-child(2){flex:1}.cart-line b{font:16px Georgia,serif}.cart-line small{display:block;color:var(--muted);margin-top:5px}.qty{display:flex;align-items:center;gap:9px}.qty button{border:1px solid var(--line);background:white;width:26px;height:26px;border-radius:4px}.totalrow{display:flex;justify-content:space-between;padding:9px 0}.empty{text-align:center;padding:40px 10px;color:var(--muted)}.admin-shell{display:grid;grid-template-columns:205px 1fr;gap:20px;margin:25px 0}.sidebar{background:#eee7dc;border-radius:7px;padding:14px;height:max-content}.sidebar button{display:block;width:100%;text-align:left;padding:12px;border:0;background:transparent;color:var(--muted);border-radius:4px;font-size:12px}.sidebar button.active,.sidebar button:hover{background:#fffdfa;color:var(--ink)}.admin-content{min-width:0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{background:white;border:1px solid var(--line);padding:16px;border-radius:6px}.stat small{color:var(--muted);font-size:10px}.stat strong{display:block;font:25px Georgia,serif;margin-top:9px}.panel{background:white;border:1px solid var(--line);border-radius:7px;padding:17px;margin-top:17px;overflow:auto}.panel h3{font:20px Georgia,serif;margin:0 0 15px}.table{width:100%;border-collapse:collapse;font-size:12px;min-width:500px}.table th,.table td{text-align:left;padding:12px 9px;border-bottom:1px solid var(--line)}.table th{color:var(--muted);font-weight:normal}.smallbtn{border:1px solid var(--line);background:white;padding:7px 9px;border-radius:4px;font-size:10px;margin:2px}.danger{color:var(--red)}.admin-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.notice{padding:12px;background:#f2eadf;border-radius:5px;color:#705e4d;font-size:11px;line-height:1.6;margin:12px 0}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--dark);color:white;padding:12px 18px;border-radius:5px;z-index:100;font-size:12px;display:none;max-width:90%;text-align:center}.toast.show{display:block}.hide{display:none!important}.admin-content .stats{margin-bottom:14px}.admin-content .panel .admin-top h3{margin:0}.admin-content .table{min-width:420px}.iconbtn b{color:#9d5146}
+@media(max-width:760px){.editorial-grid{grid-template-columns:1fr}.editorial-card{min-height:190px}.category{min-height:165px}.hero-art{width:53%;opacity:.72}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product-visual{height:165px}.hero{min-height:270px}.hero-copy{padding:27px 22px;max-width:75%}.hero-art{right:-5%;font-size:130px}.admin-shell{grid-template-columns:1fr}.sidebar{display:flex;overflow:auto;gap:5px}.sidebar button{white-space:nowrap;width:auto}.stats{grid-template-columns:repeat(2,1fr)}.categories{gap:8px}.category{padding:13px;min-height:110px}.category b{font-size:18px}.topbar{padding:0 12px}.brand{font-size:21px}.modebtn{padding:9px}.hide-mobile{display:none}}
+@media(max-width:380px){.product-visual{height:140px}.hero h1{font-size:35px}.hero-art{opacity:.35}.top-actions{gap:4px}.modebtn{font-size:10px;padding:8px}}
+</style>
+</head>
+<body>
+<div class="announcement">COMPLIMENTARY SHIPPING ON ORDERS ABOVE ₹1,999 · DEMO STORE</div>
+<header class="topbar">
+  <div class="brand">ÉLORA<small>FASHION HOUSE</small></div>
+  <div class="top-actions">
+    <button class="modebtn active" id="shopMode" onclick="switchMode('shop')">SHOP</button>
+    <button class="modebtn" id="adminMode" onclick="switchMode('admin')">ADMIN</button>
+    <button class="iconbtn" onclick="openFavorites()">♥ Favorites <b id="wishCount">0</b></button>
+    <button class="iconbtn" onclick="openCart()">Bag <b id="bagCount">0</b></button>
+  </div>
+</header>
+
+<main id="shopView" class="view active">
+  <div class="wrap">
+    <nav class="nav">
+      <button class="active" onclick="filterCategory('All',this)">ALL</button>
+      <button onclick="filterCategory('Men',this)">MEN</button>
+      <button onclick="filterCategory('Women',this)">WOMEN</button>
+      <button onclick="filterCategory('Kids',this)">KIDS</button>
+      <button onclick="document.getElementById('collections').scrollIntoView({behavior:'smooth'})">NEW ARRIVALS</button>
+    </nav>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">The art of everyday elegance</div>
+        <h1>Wear your<br>own story.</h1>
+        <p>Thoughtfully selected styles for every age, every mood and every moment.</p>
+        <button class="primary light" onclick="document.getElementById('collections').scrollIntoView({behavior:'smooth'})">EXPLORE COLLECTION</button>
+      </div>
+      <div class="hero-art" role="img" aria-label="ÉLORA fashion campaign"></div>
+    </section>
+    <div class="section-head"><h2>Find your style</h2><p>Curated collections for everyone</p></div>
+    <div class="categories">
+      <button class="category" style="background-image:url('https://images.unsplash.com/photo-1617137968427-85924c800a22?w=900&q=85&fit=crop')" onclick="filterCategory('Men')"><span class="emoji">♔</span><b>For Him</b><span>DISCOVER MEN</span></button>
+      <button class="category" style="background-image:url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&q=85&fit=crop')" onclick="filterCategory('Women')"><span class="emoji">✿</span><b>For Her</b><span>DISCOVER WOMEN</span></button>
+      <button class="category" style="background-image:url('https://images.unsplash.com/photo-1503919005314-30d93d07d823?w=900&q=85&fit=crop')" onclick="filterCategory('Kids')"><span class="emoji">☼</span><b>For Kids</b><span>LITTLE STYLES</span></button>
+    </div>
+    <section id="collections">
+      <div class="section-head"><h2>Our Collection</h2><p>Everyday essentials, elevated.</p></div>
+      <div class="toolbar">
+        <input class="search" id="searchBox" placeholder="Search dresses, shirts, styles…" oninput="renderProducts()">
+        <select class="select" id="sortSelect" onchange="renderProducts()"><option value="featured">Sort: Featured</option><option value="low">Price: Low to high</option><option value="high">Price: High to low</option></select>
+        <select class="select" id="categorySelect" onchange="renderProducts()"><option>All</option><option>Men</option><option>Women</option><option>Kids</option></select>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+    <section class="editorial-grid" aria-label="Fashion edits">
+      <article class="editorial-card" style="background-image:url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1100&q=85&fit=crop')"><div><div class="eyebrow">THE WOMEN'S EDIT</div><h3>Elegance, reimagined.</h3><span>New season silhouettes</span></div></article>
+      <article class="editorial-card" style="background-image:url('https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=900&q=85&fit=crop')"><div><div class="eyebrow">CURATED FOR YOU</div><h3>Everyday icons.</h3><span>Find your signature look</span></div></article>
+    </section>
+    <p class="image-credit">Fashion imagery for this demo is sourced from online Unsplash photo URLs. Product photos are illustrative samples.</p>
+    <div class="promo"><div class="eyebrow">A little something for you</div><h2>Made for moments that matter.</h2><p style="font-size:12px;color:var(--muted)">Explore the ÉLORA edit — style for the whole family.</p><button class="primary" onclick="window.scrollTo({top:0,behavior:'smooth'})">BACK TO TOP</button></div>
+  </div>
+  <footer class="footer"><div class="brand">ÉLORA</div><p>FASHION FOR MEN · WOMEN · KIDS<br>Premium style. Timeless elegance.</p><p>DEMO STORE · © 2026 ÉLORA FASHION</p></footer>
+</main>
+
+<main id="adminView" class="view">
+ <div class="wrap">
+  <div class="admin-shell">
+   <aside class="sidebar">
+    <button class="active" onclick="adminTab('overview',this)">▦ &nbsp; Overview</button>
+    <button onclick="adminTab('products',this)">◇ &nbsp; Products</button>
+    <button onclick="adminTab('orders',this)">▤ &nbsp; Orders</button>
+    <button onclick="adminTab('customers',this)">♙ &nbsp; Customers</button>
+    <button onclick="adminTab('sales',this)">▥ &nbsp; Sales Reports</button>
+    <button onclick="adminTab('stock',this)">▣ &nbsp; Stock</button>
+    <button onclick="adminTab('profit',this)">₹ &nbsp; Profit</button>
+    <button onclick="adminTab('exports',this)">⇩ &nbsp; Export Data</button>
+   </aside>
+   <section class="admin-content">
+    <div id="admin-overview" class="admin-panel">
+     <div class="admin-top"><div><div class="eyebrow">STORE MANAGEMENT</div><h1 class="page-title">Dashboard</h1><p class="sub">Welcome to your ÉLORA store overview.</p></div><button class="primary" onclick="openProductForm()">+ ADD PRODUCT</button></div>
+     <div class="stats">
+      <div class="stat"><small>PRODUCTS</small><strong id="statProducts">0</strong></div>
+      <div class="stat"><small>ORDERS</small><strong id="statOrders">0</strong></div>
+      <div class="stat"><small>CUSTOMERS</small><strong id="statCustomers">0</strong></div>
+      <div class="stat"><small>TOTAL SALES</small><strong id="statRevenue">₹0</strong></div>
+      <div class="stat"><small>EST. PROFIT</small><strong id="statProfit">₹0</strong></div>
+     </div>
+     <div class="panel"><h3>Sales overview</h3><div id="salesSummary"></div></div>
+     <div class="panel"><h3>Sales products</h3><div class="admin-top"><span class="sub">Product units and revenue</span><button class="smallbtn" onclick="exportExcel('sales')">Export to Excel</button></div><div id="salesProductsTable"></div></div>
+     <div class="panel"><h3>Recent orders</h3><div id="recentOrders"></div></div>
+     <div class="notice">Demo mode: changes are saved in this browser on this device only. No real customer accounts, payments or shipments are created.</div>
+    </div>
+    <div id="admin-products" class="admin-panel hide">
+     <div class="admin-top"><div><div class="eyebrow">CATALOGUE</div><h1 class="page-title">Products</h1><p class="sub">Manage your sample fashion collection.</p></div><button class="primary" onclick="openProductForm()">+ ADD PRODUCT</button></div>
+     <div class="panel"><div id="productTable"></div></div>
+    </div>
+    <div id="admin-orders" class="admin-panel hide">
+     <div class="eyebrow">FULFILMENT</div><h1 class="page-title">Orders</h1><p class="sub">Review demo checkouts and update their status.</p>
+     <div class="panel"><div id="ordersTable"></div></div>
+    </div>
+    <div id="admin-customers" class="admin-panel hide">
+     <div class="eyebrow">RELATIONSHIPS</div><h1 class="page-title">Customers</h1><p class="sub">Customers entered during demo checkout.</p>
+     <div class="panel"><div class="admin-top"><span>Customer records</span><button class="smallbtn" onclick="exportExcel('customers')">Export to Excel</button></div><div id="customersTable"></div></div>
+    </div>
+    <div id="admin-sales" class="admin-panel hide">
+     <div class="eyebrow">PERFORMANCE</div><h1 class="page-title">Sales Reports</h1><p class="sub">Order totals, best-selling items and revenue summary.</p>
+     <div class="panel"><div class="admin-top"><h3>Sales table</h3><button class="smallbtn" onclick="exportExcel('sales')">Export to Excel</button></div><div id="salesReportTable"></div></div>
+    </div>
+    <div id="admin-stock" class="admin-panel hide">
+     <div class="eyebrow">INVENTORY</div><h1 class="page-title">Stock Management</h1><p class="sub">Current stock and low-stock alerts.</p>
+     <div class="panel"><div class="admin-top"><h3>Stock details</h3><button class="smallbtn" onclick="exportExcel('stock')">Export to Excel</button></div><div id="stockTable"></div></div>
+    </div>
+    <div id="admin-profit" class="admin-panel hide">
+     <div class="eyebrow">FINANCE</div><h1 class="page-title">Profit & Stock Report</h1><p class="sub">Demo estimate only; set real purchase costs before using for accounting.</p>
+     <div class="stats"><div class="stat"><small>ESTIMATED PROFIT</small><strong id="profitValue">₹0</strong></div><div class="stat"><small>STOCK VALUE</small><strong id="stockValue">₹0</strong></div><div class="stat"><small>ITEMS IN STOCK</small><strong id="stockCount">0</strong></div><div class="stat"><small>SALES REVENUE</small><strong id="profitRevenue">₹0</strong></div></div>
+     <div class="panel"><div class="admin-top"><h3>Profit & stock table</h3><button class="smallbtn" onclick="exportExcel('profit')">Export to Excel</button></div><div id="profitTable"></div></div>
+    </div>
+    <div id="admin-exports" class="admin-panel hide">
+     <div class="eyebrow">DOWNLOAD CENTRE</div><h1 class="page-title">Export Data</h1><p class="sub">Download Excel-compatible CSV files for your records.</p>
+     <div class="panel"><div class="admin-top"><b>Sales report</b><button class="primary" onclick="exportExcel('sales')">Download Excel</button></div></div>
+     <div class="panel"><div class="admin-top"><b>Products catalogue</b><button class="primary" onclick="exportExcel('products')">Download Excel</button></div></div>
+     <div class="panel"><div class="admin-top"><b>Customer details</b><button class="primary" onclick="exportExcel('customers')">Download Excel</button></div></div>
+     <div class="panel"><div class="admin-top"><b>Stock report</b><button class="primary" onclick="exportExcel('stock')">Download Excel</button></div></div>
+     <div class="panel"><div class="admin-top"><b>Profit report</b><button class="primary" onclick="exportExcel('profit')">Download Excel</button></div></div>
+    </div>
+   </section>
+  </div>
+ </div>
+</main>
+
+<div class="overlay" id="productModal"><div class="modal">
+ <button class="close" onclick="closeModal('productModal')">×</button><h2 id="productModalTitle">Add product</h2>
+ <input type="hidden" id="editId">
+ <div class="field"><label>PRODUCT NAME</label><input id="pName" placeholder="e.g. Linen blend shirt"></div>
+ <div class="row"><div class="field"><label>CATEGORY</label><select id="pCategory"><option>Men</option><option>Women</option><option>Kids</option></select></div><div class="field"><label>PRICE (₹)</label><input id="pPrice" type="number" min="1" placeholder="1299"></div></div>
+ <div class="row"><div class="field"><label>EMOJI / PRODUCT ICON</label><input id="pEmoji" maxlength="4" placeholder="👗"></div><div class="field"><label>STOCK</label><input id="pStock" type="number" min="0" value="10"></div></div>
+ <div class="field"><label>ONLINE PRODUCT IMAGE URL</label><input id="pImage" type="url" placeholder="https://... (paste direct image link)"></div><div class="field"><label>SHORT DESCRIPTION</label><input id="pDesc" placeholder="Soft cotton, everyday comfort"></div>
+ <button class="primary" style="width:100%" onclick="saveProduct()">SAVE PRODUCT</button>
+</div></div>
+
+<div class="overlay" id="detailModal"><div class="modal">
+ <button class="close" onclick="closeModal('detailModal')">×</button><div id="detailContent"></div>
+</div></div>
+
+<div class="overlay" id="cartModal"><div class="modal">
+ <button class="close" onclick="closeModal('cartModal')">×</button><h2>Your shopping bag</h2><div id="cartContent"></div>
+</div></div>
+
+<div class="overlay" id="checkoutModal"><div class="modal">
+ <button class="close" onclick="closeModal('checkoutModal')">×</button><h2>Checkout</h2>
+ <div class="notice">Demo checkout only. Do not enter real payment details.</div>
+ <div class="field"><label>FULL NAME</label><input id="cName" placeholder="Your name"></div>
+ <div class="field"><label>MOBILE NUMBER</label><input id="cPhone" type="tel" placeholder="10-digit mobile number"></div>
+ <div class="field"><label>DELIVERY ADDRESS</label><textarea id="cAddress" rows="3" placeholder="House / street / city / pincode"></textarea></div>
+ <div class="field"><label>PAYMENT METHOD (DEMO)</label><select id="cPayment"><option>Cash on Delivery (demo)</option><option>UPI (demo only — no payment)</option></select></div>
+ <button class="primary" style="width:100%" onclick="placeOrder()">PLACE DEMO ORDER</button>
+</div></div>
+<div class="overlay" id="favoritesModal"><div class="modal">
+ <button class="close" onclick="closeModal('favoritesModal')">×</button><h2>My Favorites</h2><div id="favoritesContent"></div>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const seed=[
+{id:101,name:"The Everyday Linen Shirt",category:"Men",price:1299,image:"https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=900&q=85&fit=crop",emoji:"👔",stock:18,desc:"A relaxed fit staple for effortless everyday dressing.",sizes:["S","M","L","XL"],colors:["Sand","White","Olive"],tag:"BESTSELLER"},
+{id:102,name:"Classic Cotton T-Shirt",category:"Men",price:699,image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=900&q=85&fit=crop",emoji:"👕",stock:24,desc:"Soft-touch cotton with a clean, versatile silhouette.",sizes:["S","M","L","XL","XXL"],colors:["Cream","Black","Taupe"],tag:"ESSENTIAL"},
+{id:103,name:"Relaxed Fit Trousers",category:"Men",price:1599,image:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&q=85&fit=crop",emoji:"👖",stock:10,desc:"Tailored comfort for workdays and weekends.",sizes:["30","32","34","36"],colors:["Beige","Charcoal"],tag:"NEW"},
+{id:104,name:"Elegant Midi Dress",category:"Women",price:1899,image:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=900&q=85&fit=crop",emoji:"👗",stock:12,desc:"A graceful silhouette designed for day-to-evening wear.",sizes:["S","M","L","XL"],colors:["Blush","Sage","Black"],tag:"NEW"},
+{id:105,name:"Everyday Kurti",category:"Women",price:999,image:"https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=900&q=85&fit=crop",emoji:"🥻",stock:20,desc:"An easy, breathable favourite with timeless detail.",sizes:["S","M","L","XL","XXL"],colors:["Ivory","Rose","Teal"],tag:"POPULAR"},
+{id:106,name:"Soft Knit Co-ord Set",category:"Women",price:2199,image:"https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&q=85&fit=crop",emoji:"🧥",stock:8,desc:"A polished matching set with a relaxed feel.",sizes:["S","M","L"],colors:["Oat","Mocha"],tag:"LIMITED"},
+{id:107,name:"Little Explorer Set",category:"Kids",price:799,image:"https://images.unsplash.com/photo-1503919005314-30d93d07d823?w=900&q=85&fit=crop",emoji:"🧸",stock:16,desc:"Comfort-first playwear for little adventures.",sizes:["2-3Y","4-5Y","6-7Y"],colors:["Cream","Blue","Yellow"],tag:"KIDS"},
+{id:108,name:"Party Day Dress",category:"Kids",price:1199,image:"https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=900&q=85&fit=crop",emoji:"🎀",stock:9,desc:"A special-occasion look made for happy moments.",sizes:["2-3Y","4-5Y","6-7Y"],colors:["Peach","Lilac"],tag:"SPECIAL"},
+{id:109,name:"Mini Cotton Shirt",category:"Kids",price:649,image:"https://images.unsplash.com/photo-1519689680058-324335c77eba?w=900&q=85&fit=crop",emoji:"🧢",stock:22,desc:"A smart little shirt in soft everyday cotton.",sizes:["2-3Y","4-5Y","6-7Y"],colors:["White","Sky","Sand"],tag:"ESSENTIAL"},
+{id:110,name:"Pleated Everyday Skirt",category:"Women",price:1399,image:"https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=900&q=85&fit=crop",emoji:"👚",stock:14,desc:"Easy movement and a refined everyday finish.",sizes:["S","M","L","XL"],colors:["Taupe","Black"],tag:"TRENDING"},
+{id:111,name:"Weekend Hoodie",category:"Men",price:1799,image:"https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=900&q=85&fit=crop",emoji:"🧥",stock:7,desc:"A soft layer for laid-back days.",sizes:["M","L","XL","XXL"],colors:["Stone","Navy"],tag:"NEW"},
+{id:112,name:"Tiny Trendsetter Set",category:"Kids",price:899,image:"https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=900&q=85&fit=crop",emoji:"🩳",stock:11,desc:"A playful two-piece outfit for everyday fun.",sizes:["2-3Y","4-5Y","6-7Y"],colors:["Mint","Beige"],tag:"POPULAR"}
+,{id:113,name:"Oxford Casual Shirt",category:"Men",price:1399,image:"https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=900&q=85&fit=crop",emoji:"◇",stock:15,desc:"A crisp wardrobe staple with a modern relaxed fit.",sizes:["S","M","L","XL"],colors:["White","Blue","Olive"],tag:"NEW"}
+,{id:114,name:"Denim Weekend Jeans",category:"Men",price:1699,image:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=900&q=85&fit=crop",emoji:"◇",stock:13,desc:"Versatile denim designed for everyday movement.",sizes:["30","32","34","36"],colors:["Indigo","Black"],tag:"POPULAR"}
+,{id:115,name:"Flowy Floral Dress",category:"Women",price:1999,image:"https://images.unsplash.com/photo-1495385794356-15371f348c31?w=900&q=85&fit=crop",emoji:"◇",stock:10,desc:"A soft flowing dress for brunches and celebrations.",sizes:["S","M","L","XL"],colors:["Floral","Rose"],tag:"TRENDING"}
+,{id:116,name:"Classic Ethnic Look",category:"Women",price:2499,image:"https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=900&q=85&fit=crop",emoji:"◇",stock:8,desc:"An elegant occasion-inspired ethnic ensemble.",sizes:["S","M","L","XL"],colors:["Wine","Emerald"],tag:"SPECIAL"}
+,{id:117,name:"Kids Playtime Outfit",category:"Kids",price:899,image:"https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=900&q=85&fit=crop",emoji:"◇",stock:20,desc:"Soft and easy-to-wear outfit for active little days.",sizes:["2-3Y","4-5Y","6-7Y"],colors:["Blue","Cream","Yellow"],tag:"KIDS"}
+,{id:118,name:"Little Occasion Dress",category:"Kids",price:1299,image:"https://images.unsplash.com/photo-1503919005314-30d93d07d823?w=900&q=85&fit=crop",emoji:"◇",stock:7,desc:"A sweet celebration look with comfortable movement.",sizes:["2-3Y","4-5Y","6-7Y"],colors:["Pink","Ivory"],tag:"SPECIAL"}
+
+,{id:119,name:"Classic Cotton Kurta",category:"Men",price:1199,image:"https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=900&q=85&fit=crop",emoji:"◇",stock:12,desc:"An easy ethnic essential for relaxed festive dressing.",sizes:["S","M","L","XL"],colors:["Ivory","Olive","Navy"],tag:"ETHNIC"}
+,{id:120,name:"Layered Utility Jacket",category:"Men",price:2299,image:"https://images.unsplash.com/photo-1551028719-00167b16eac5?w=900&q=85&fit=crop",emoji:"◇",stock:6,desc:"A versatile outer layer with a clean modern finish.",sizes:["M","L","XL"],colors:["Stone","Black"],tag:"NEW"}
+,{id:121,name:"Satin Evening Top",category:"Women",price:1499,image:"https://images.unsplash.com/photo-1551163943-3f6a855d1153?w=900&q=85&fit=crop",emoji:"◇",stock:9,desc:"A refined top that transitions effortlessly from day to evening.",sizes:["S","M","L","XL"],colors:["Champagne","Black"],tag:"TRENDING"}
+,{id:122,name:"Draped Occasion Saree",category:"Women",price:2999,image:"https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=900&q=85&fit=crop",emoji:"◇",stock:5,desc:"A celebration-ready drape inspired by timeless elegance.",sizes:["Free Size"],colors:["Rose","Emerald","Wine"],tag:"OCCASION"}
+,{id:123,name:"Kids Cozy Layer Set",category:"Kids",price:1099,image:"https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=900&q=85&fit=crop",emoji:"◇",stock:14,desc:"A comfortable layered look for cooler days and outings.",sizes:["2-3Y","4-5Y","6-7Y"],colors:["Blue","Oat"],tag:"NEW"}
+,{id:124,name:"Little Festive Kurta Set",category:"Kids",price:1399,image:"https://images.unsplash.com/photo-1503919005314-30d93d07d823?w=900&q=85&fit=crop",emoji:"◇",stock:8,desc:"A cheerful festive outfit made for little celebrations.",sizes:["2-3Y","4-5Y","6-7Y"],colors:["Cream","Maroon"],tag:"FESTIVE"}
+
+];
+const money=n=>"₹"+Number(n).toLocaleString("en-IN");
+let products=load("elora_products",seed),cart=load("elora_cart",[]),wish=load("elora_wish",[]),orders=load("elora_orders",[]),customers=load("elora_customers",[]);
+const defaultImages={Men:"https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=900&q=85&fit=crop",Women:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&q=85&fit=crop",Kids:"https://images.unsplash.com/photo-1503919005314-30d93d07d823?w=900&q=85&fit=crop"}; const freshSeedImages=Object.fromEntries(seed.map(p=>[p.id,p.image])); products.forEach(p=>{if(freshSeedImages[p.id])p.image=freshSeedImages[p.id];if(!p.image)p.image=defaultImages[p.category]||defaultImages.Men;});
+let activeCategory="All",selectedProduct=null,selectedSize="",selectedColor="";
+function load(k,f){try{let x=localStorage.getItem(k);return x?JSON.parse(x):JSON.parse(JSON.stringify(f))}catch(e){return JSON.parse(JSON.stringify(f))}}
+function save(){localStorage.setItem("elora_products",JSON.stringify(products));localStorage.setItem("elora_cart",JSON.stringify(cart));localStorage.setItem("elora_wish",JSON.stringify(wish));localStorage.setItem("elora_orders",JSON.stringify(orders));localStorage.setItem("elora_customers",JSON.stringify(customers))}
+function toast(s){let t=document.getElementById("toast");t.textContent=s;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2200)}
+function switchMode(m){document.getElementById("shopView").classList.toggle("active",m==="shop");document.getElementById("adminView").classList.toggle("active",m==="admin");document.getElementById("shopMode").classList.toggle("active",m==="shop");document.getElementById("adminMode").classList.toggle("active",m==="admin");if(m==="admin")refreshAdmin();window.scrollTo(0,0)}
+function filterCategory(c,btn){activeCategory=c;document.getElementById("categorySelect").value=c;document.querySelectorAll(".nav button").forEach(b=>b.classList.remove("active"));if(btn)btn.classList.add("active");renderProducts();document.getElementById("collections").scrollIntoView({behavior:"smooth"})}
+function renderProducts(){let q=(document.getElementById("searchBox")?.value||"").toLowerCase(),cat=document.getElementById("categorySelect")?.value||activeCategory,sort=document.getElementById("sortSelect")?.value||"featured";let list=products.filter(p=>(cat==="All"||p.category===cat)&&(`${p.name} ${p.category} ${p.desc||""}`).toLowerCase().includes(q));if(sort==="low")list.sort((a,b)=>a.price-b.price);if(sort==="high")list.sort((a,b)=>b.price-a.price);document.getElementById("productGrid").innerHTML=list.length?list.map(p=>`<article class="product-card"><div class="product-visual"><span class="tag">${esc(p.tag||p.category)}</span><button class="heart" onclick="toggleWish(${p.id})">${wish.includes(p.id)?"♥":"♡"}</button><img src="${esc(p.image||"")}" alt="${esc(p.name)}" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&q=80&fit=crop'}else{this.style.display='none';this.nextElementSibling.style.display='none'}"><span class="fallback">${esc(p.emoji||"◇")}</span></div><div class="product-info"><div class="category-label">${esc(p.category)}</div><h3>${esc(p.name)}</h3><div class="price">${money(p.price)}</div><div class="card-actions"><button class="outline" onclick="openDetail(${p.id})">VIEW</button><button class="primary" onclick="quickAdd(${p.id})">ADD</button></div></div></article>`).join(""):`<div class="empty" style="grid-column:1/-1">No products found. Try another search.</div>`}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function toggleWish(id){wish=wish.includes(id)?wish.filter(x=>x!==id):[...wish,id];save();renderProducts();toast(wish.includes(id)?"Added to wishlist":"Removed from wishlist")}
+function openDetail(id){selectedProduct=products.find(p=>p.id===id);if(!selectedProduct)return;selectedSize="";selectedColor="";let p=selectedProduct;document.getElementById("detailContent").innerHTML=`<div style="background:var(--sand);height:260px;border-radius:6px;overflow:hidden"><img src="${esc(p.image||'')}" alt="${esc(p.name)}" style="width:100%;height:100%;object-fit:cover" onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&q=80&fit=crop'}else{this.style.display='none'}"></div><div class="eyebrow" style="margin-top:18px">${esc(p.category)}</div><h2>${esc(p.name)}</h2><b>${money(p.price)}</b><p style="color:var(--muted);font-size:13px;line-height:1.6">${esc(p.desc||"A considered addition to your wardrobe.")}</p><div class="field"><label>SELECT SIZE</label><div class="size-list">${(p.sizes||["S","M","L","XL"]).map(s=>`<button class="size-btn" onclick="chooseOption('size','${esc(s)}',this)">${esc(s)}</button>`).join("")}</div></div><div class="field"><label>SELECT COLOUR</label><div class="color-list">${(p.colors||["Beige","Black"]).map(c=>`<button class="color-btn" onclick="chooseOption('color','${esc(c)}',this)">${esc(c)}</button>`).join("")}</div></div><p style="font-size:11px;color:var(--muted)">Demo stock available: ${p.stock??0}</p><button class="primary" style="width:100%" onclick="addSelected()">ADD TO BAG</button>`;document.getElementById("detailModal").classList.add("show")}
+function chooseOption(type,val,el){if(type==="size"){selectedSize=val;document.querySelectorAll(".size-btn").forEach(x=>x.classList.remove("selected"))}else{selectedColor=val;document.querySelectorAll(".color-btn").forEach(x=>x.classList.remove("selected"))}el.classList.add("selected")}
+function addSelected(){if(!selectedSize||!selectedColor){toast("Please select a size and colour");return}addToCart(selectedProduct.id,selectedSize,selectedColor);closeModal("detailModal")}
+function quickAdd(id){openDetail(id)}
+function addToCart(id,size,color){let p=products.find(x=>x.id===id);if(!p||p.stock<=0){toast("Currently out of stock");return}let line=cart.find(x=>x.id===id&&x.size===size&&x.color===color);if(line)line.qty++;else cart.push({id,size,color,qty:1});save();updateBag();toast("Added to your bag")}
+function updateBag(){document.getElementById("bagCount").textContent=cart.reduce((s,x)=>s+x.qty,0)}
+function cartTotal(){return cart.reduce((s,x)=>{let p=products.find(p=>p.id===x.id);return s+(p?p.price*x.qty:0)},0)}
+function openCart(){renderCart();document.getElementById("cartModal").classList.add("show")}
+function renderCart(){let el=document.getElementById("cartContent");if(!cart.length){el.innerHTML=`<div class="empty">Your bag is waiting for something lovely.<br><br><button class="primary" onclick="closeModal('cartModal')">CONTINUE SHOPPING</button></div>`;return}el.innerHTML=cart.map((x,i)=>{let p=products.find(p=>p.id===x.id);if(!p)return"";return `<div class="cart-line"><div class="mini-art"><img src="${esc(p.image||'')}" alt="${esc(p.name)}" onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&q=80&fit=crop'}else{this.style.display='none'}"></div><div><b>${esc(p.name)}</b><small>${esc(x.size)} · ${esc(x.color)} · ${money(p.price)}</small><div class="qty"><button onclick="changeQty(${i},-1)">−</button>${x.qty}<button onclick="changeQty(${i},1)">+</button><button class="smallbtn danger" onclick="removeCart(${i})">Remove</button></div></div><b>${money(p.price*x.qty)}</b></div>`}).join("")+`<div style="padding-top:15px"><div class="totalrow"><span>Subtotal</span><b>${money(cartTotal())}</b></div><div class="totalrow"><span>Shipping</span><span>${cartTotal()>=1999?"Complimentary":"Calculated at checkout"}</span></div><div class="totalrow" style="font-size:18px"><b>Total</b><b>${money(cartTotal())}</b></div><button class="primary" style="width:100%;margin-top:12px" onclick="startCheckout()">PROCEED TO CHECKOUT</button></div>`}
+function changeQty(i,d){cart[i].qty+=d;if(cart[i].qty<=0)cart.splice(i,1);save();updateBag();renderCart()}
+function removeCart(i){cart.splice(i,1);save();updateBag();renderCart()}
+function startCheckout(){if(!cart.length)return;closeModal("cartModal");document.getElementById("checkoutModal").classList.add("show")}
+function placeOrder(){let name=document.getElementById("cName").value.trim(),phone=document.getElementById("cPhone").value.trim(),address=document.getElementById("cAddress").value.trim();if(!name||!phone||!address){toast("Please complete all delivery details");return}if(!/^[0-9+\-\s]{10,15}$/.test(phone)){toast("Enter a valid mobile number");return}let order={id:"EL"+Date.now().toString().slice(-7),name,phone,address,payment:document.getElementById("cPayment").value,items:cart.map(x=>({...x})),total:cartTotal(),status:"New",date:new Date().toLocaleDateString("en-IN")};orders.unshift(order);if(!customers.some(c=>c.phone===phone))customers.push({name,phone});cart.forEach(x=>{let p=products.find(p=>p.id===x.id);if(p)p.stock=Math.max(0,p.stock-x.qty)});cart=[];save();updateBag();closeModal("checkoutModal");refreshAdmin();toast("Demo order placed successfully · "+order.id)}
+function closeModal(id){document.getElementById(id).classList.remove("show")}
+document.querySelectorAll(".overlay").forEach(o=>o.addEventListener("click",e=>{if(e.target===o)o.classList.remove("show")}));
+function adminTab(tab,btn){document.querySelectorAll(".admin-panel").forEach(x=>x.classList.add("hide"));document.getElementById("admin-"+tab).classList.remove("hide");document.querySelectorAll(".sidebar button").forEach(x=>x.classList.remove("active"));btn.classList.add("active");refreshAdmin()}
+function refreshAdmin(){document.getElementById("statProducts").textContent=products.length;document.getElementById("statOrders").textContent=orders.length;document.getElementById("statCustomers").textContent=customers.length;document.getElementById("statRevenue").textContent=money(orders.reduce((s,o)=>s+o.total,0));document.getElementById("recentOrders").innerHTML=orders.length?orderTable(orders.slice(0,5),false):'<div class="empty">No demo orders yet. Place a test order from the shop.</div>';document.getElementById("productTable").innerHTML=productTable();document.getElementById("ordersTable").innerHTML=orders.length?orderTable(orders,true):'<div class="empty">No orders yet.</div>';document.getElementById("customersTable").innerHTML=customers.length?`<table class="table"><tr><th>NAME</th><th>PHONE</th></tr>${customers.map(c=>`<tr><td>${esc(c.name)}</td><td>${esc(c.phone)}</td></tr>`).join("")}</table>`:'<div class="empty">No customers yet. Demo checkout entries appear here.</div>'}
+function productTable(){return `<table class="table"><tr><th>PRODUCT</th><th>CATEGORY</th><th>PRICE</th><th>STOCK</th><th>ACTIONS</th></tr>${products.map(p=>`<tr><td>${esc(p.name)}</td><td>${esc(p.category)}</td><td>${money(p.price)}</td><td>${p.stock}</td><td><button class="smallbtn" onclick="editProduct(${p.id})">Edit</button><button class="smallbtn danger" onclick="deleteProduct(${p.id})">Delete</button></td></tr>`).join("")}</table>`}
+function orderTable(list,full){return `<table class="table"><tr><th>ORDER</th><th>CUSTOMER</th><th>TOTAL</th><th>STATUS</th>${full?"<th>UPDATE</th>":""}</tr>${list.map(o=>`<tr><td>${o.id}<br><small>${o.date}</small></td><td>${esc(o.name)}</td><td>${money(o.total)}</td><td>${esc(o.status)}</td>${full?`<td><select class="select" onchange="updateOrder('${o.id}',this.value)">${["New","Processing","Shipped","Delivered","Cancelled"].map(s=>`<option ${o.status===s?"selected":""}>${s}</option>`).join("")}</select></td>`:""}</tr>`).join("")}</table>`}
+function updateOrder(id,status){let o=orders.find(x=>x.id===id);if(o){o.status=status;save();refreshAdmin();toast("Order status updated")}}
+function openProductForm(){document.getElementById("editId").value="";document.getElementById("productModalTitle").textContent="Add product";["pName","pPrice","pEmoji","pDesc"].forEach(id=>document.getElementById(id).value="");document.getElementById("pStock").value=10;document.getElementById("productModal").classList.add("show")}
+function editProduct(id){let p=products.find(x=>x.id===id);if(!p)return;document.getElementById("editId").value=id;document.getElementById("productModalTitle").textContent="Edit product";document.getElementById("pName").value=p.name;document.getElementById("pCategory").value=p.category;document.getElementById("pPrice").value=p.price;document.getElementById("pEmoji").value=p.emoji;document.getElementById("pImage").value=p.image||"";document.getElementById("pStock").value=p.stock;document.getElementById("pDesc").value=p.desc||"";document.getElementById("productModal").classList.add("show")}
+function saveProduct(){let name=document.getElementById("pName").value.trim(),price=Number(document.getElementById("pPrice").value),stock=Number(document.getElementById("pStock").value),id=Number(document.getElementById("editId").value);if(!name||price<=0||stock<0){toast("Enter a product name, valid price and stock");return}let data={name,category:document.getElementById("pCategory").value,price,emoji:document.getElementById("pEmoji").value||"◇",image:document.getElementById("pImage").value.trim()||defaultImages[document.getElementById("pCategory").value],stock,desc:document.getElementById("pDesc").value,sizes:["S","M","L","XL"],colors:["Beige","Black"],tag:"NEW"};if(id){products=products.map(p=>p.id===id?{...p,...data}:p)}else{data.id=Date.now();products.unshift(data)}save();closeModal("productModal");renderProducts();refreshAdmin();toast("Product saved")}
+function deleteProduct(id){if(!confirm("Delete this product from the demo catalogue?"))return;products=products.filter(p=>p.id!==id);cart=cart.filter(x=>x.id!==id);save();renderProducts();refreshAdmin();updateBag();toast("Product deleted")}
+
+function openFavorites(){renderFavorites();document.getElementById("favoritesModal").classList.add("show")}
+function renderFavorites(){
+ const el=document.getElementById("favoritesContent");
+ const saved=products.filter(p=>wish.includes(p.id));
+ document.getElementById("wishCount").textContent=saved.length;
+ el.innerHTML=saved.length?saved.map(p=>`<div class="cart-line"><div class="mini-art"><img src="${esc(p.image)}" alt="${esc(p.name)}"></div><div><b>${esc(p.name)}</b><small>${money(p.price)} · ${esc(p.category)}</small></div><button class="smallbtn danger" onclick="toggleWish(${p.id});renderFavorites()">Remove</button><button class="smallbtn" onclick="closeModal('favoritesModal');openDetail(${p.id})">View</button></div>`).join(""):'<div class="empty">No favourites yet. Tap the heart on any product to save it here.</div>';
+}
+function csvCell(v){return '"'+String(v??'').replace(/"/g,'""')+'"'}
+function downloadCSV(filename, rows){
+ const csv='\ufeff'+rows.map(r=>r.map(csvCell).join(',')).join('\r\n');
+ const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+ const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;a.click();URL.revokeObjectURL(url);
+}
+function soldByProduct(){
+ const map={};orders.forEach(o=>(o.items||[]).forEach(it=>{const p=products.find(x=>x.id===it.id);const name=p?p.name:'Deleted product';const price=p?p.price:0;map[it.id]??={id:it.id,name,category:p?p.category:'—',units:0,revenue:0};map[it.id].units+=it.qty;map[it.id].revenue+=price*it.qty;}));return Object.values(map);
+}
+function exportExcel(type){
+ let rows=[[]],name='elora-'+type+'-report.csv';
+ if(type==='sales'){rows=[['Order ID','Date','Customer','Phone','Payment','Items','Revenue','Status'],...orders.map(o=>[o.id,o.date,o.name,o.phone,o.payment,(o.items||[]).map(i=>{let p=products.find(x=>x.id===i.id);return (p?p.name:'Product')+' x'+i.qty}).join('; '),o.total,o.status])];}
+ if(type==='products'){rows=[['Product ID','Product','Category','Price INR','Stock'],...products.map(p=>[p.id,p.name,p.category,p.price,p.stock])];}
+ if(type==='customers'){rows=[['Name','Phone','Orders','Total Spent INR'],...customers.map(c=>{let os=orders.filter(o=>o.phone===c.phone);return[c.name,c.phone,os.length,os.reduce((s,o)=>s+o.total,0)]})];}
+ if(type==='stock'){rows=[['Product','Category','Stock','Unit Price INR','Stock Value INR','Status'],...products.map(p=>[p.name,p.category,p.stock,p.price,p.stock*p.price,p.stock<=5?'Low Stock':'In Stock'])];}
+ if(type==='profit'){rows=[['Product','Units Sold','Revenue INR','Estimated Cost INR','Estimated Profit INR','Current Stock'],...soldByProduct().map(x=>{let p=products.find(z=>z.id===x.id);let cost=x.revenue*.6;return[x.name,x.units,x.revenue,cost,x.revenue-cost,p?p.stock:0]})];}
+ downloadCSV(name,rows);toast('Excel-compatible file downloaded');
+}
+function renderAnalytics(){
+ const sales=orders.reduce((s,o)=>s+o.total,0),profit=sales*.4,stockValue=products.reduce((s,p)=>s+p.stock*p.price,0),stockCount=products.reduce((s,p)=>s+p.stock,0);
+ const sold=soldByProduct();
+ document.getElementById('statProfit').textContent=money(profit);
+ document.getElementById('salesSummary').innerHTML=`<div class="stats"><div class="stat"><small>ORDERS</small><strong>${orders.length}</strong></div><div class="stat"><small>REVENUE</small><strong>${money(sales)}</strong></div><div class="stat"><small>PRODUCTS SOLD</small><strong>${sold.reduce((s,x)=>s+x.units,0)}</strong></div><div class="stat"><small>LOW STOCK ITEMS</small><strong>${products.filter(p=>p.stock<=5).length}</strong></div></div>`;
+ const productRows=sold.length?sold.map(x=>`<tr><td>${esc(x.name)}</td><td>${esc(x.category)}</td><td>${x.units}</td><td>${money(x.revenue)}</td></tr>`).join(''):'<tr><td colspan="4">No sales yet. Place a demo order to populate this report.</td></tr>';
+ const salesTable=`<table class="table"><tr><th>PRODUCT</th><th>CATEGORY</th><th>SOLD</th><th>REVENUE</th></tr>${productRows}</table>`;
+ document.getElementById('salesProductsTable').innerHTML=salesTable;
+ document.getElementById('salesReportTable').innerHTML=`<table class="table"><tr><th>ORDER</th><th>DATE</th><th>CUSTOMER</th><th>REVENUE</th><th>STATUS</th></tr>${orders.map(o=>`<tr><td>${esc(o.id)}</td><td>${esc(o.date)}</td><td>${esc(o.name)}</td><td>${money(o.total)}</td><td>${esc(o.status)}</td></tr>`).join('')||'<tr><td colspan="5">No sales yet.</td></tr>'}</table>`;
+ document.getElementById('stockTable').innerHTML=`<table class="table"><tr><th>PRODUCT</th><th>CATEGORY</th><th>STOCK</th><th>STOCK VALUE</th><th>STATUS</th></tr>${products.map(p=>`<tr><td>${esc(p.name)}</td><td>${esc(p.category)}</td><td>${p.stock}</td><td>${money(p.stock*p.price)}</td><td>${p.stock<=5?'<span style="color:#a34">Low Stock</span>':'In Stock'}</td></tr>`).join('')}</table>`;
+ document.getElementById('profitValue').textContent=money(profit);document.getElementById('stockValue').textContent=money(stockValue);document.getElementById('stockCount').textContent=stockCount;document.getElementById('profitRevenue').textContent=money(sales);
+ document.getElementById('profitTable').innerHTML=`<table class="table"><tr><th>PRODUCT</th><th>UNITS SOLD</th><th>REVENUE</th><th>EST. COST (60%)</th><th>EST. PROFIT</th></tr>${sold.map(x=>`<tr><td>${esc(x.name)}</td><td>${x.units}</td><td>${money(x.revenue)}</td><td>${money(x.revenue*.6)}</td><td>${money(x.revenue*.4)}</td></tr>`).join('')||'<tr><td colspan="5">No sales yet. Estimated profit appears after demo orders.</td></tr>'}</table>`;
+}
+const oldRefreshAdmin=refreshAdmin;
+refreshAdmin=function(){oldRefreshAdmin();renderAnalytics();renderFavorites()};
+
+renderProducts();updateBag();refreshAdmin();renderFavorites();
+</script>
+</body>
+</html>
